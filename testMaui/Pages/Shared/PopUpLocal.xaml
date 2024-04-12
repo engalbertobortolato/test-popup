@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:shared="clr-namespace:testMaui.Pages.Shared"
+             x:Class="testMaui.Pages.Shared.PopUp"
+             x:DataType="shared:PopUpViewModel">
+    <VerticalStackLayout BackgroundColor="White" Height="3000" Width="3000">
+        
+        <StackLayout x:Name="PopupHeader" Padding="10,10,0,10">
+            <Label x:Name="PopupHeaderTitle" TextColor="White" />
+        </StackLayout>
+        
+        <Grid x:Name="PopupBody" Margin="20,0" ColumnDefinitions="5*,5*" RowDefinitions="Auto,Auto" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center">
+                <Label Text="Password" />
+            </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="0">
+                <Entry x:Name="entry_password" Text="{Binding Password}" IsPassword="True" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            
+        </Grid>
+
+        <StackLayout x:Name="PopupFooter" Orientation="Horizontal" Margin="10,0,10,10" HorizontalOptions="Center" Spacing="10">
+            <Button Text="NO" Style="{StaticResource ButtonPopupDanger}" Clicked="btn_No_Clicked" />
+            <Button Text="YES" Style="{StaticResource ButtonPopupSuccess}" Clicked="btn_Yes_Clicked" />
+        </StackLayout>
+        
+    </VerticalStackLayout>
+
+</toolkit:Popup>
